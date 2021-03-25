@@ -5,25 +5,26 @@ import { Footer } from '../components/footer'
 import { Header } from '../components/header'
 import { Message } from '../components/message'
 import { Spinner } from '../components/spinner'
-import { useSignIn } from '../hooks/auth'
+import { useSignUp } from '../hooks/auth'
 import { getUser } from '../lib/auth'
 
-const SignIn = () => {
-  const { error, loading, signIn } = useSignIn()
+const SignUp = () => {
+  const { error, loading, signUp } = useSignUp()
 
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   return (
     <div className="layout">
       <Head>
-        <title>Sign in / Resume 5.0</title>
+        <title>Sign up / Resume 5.0</title>
       </Head>
 
       <Header />
 
       <main className="page">
-        <h2 className="text-4xl font-black">Sign in</h2>
+        <h2 className="text-4xl font-black">Sign up</h2>
 
         {error && <Message className="mt-8" message={error} type="error" />}
 
@@ -32,8 +33,18 @@ const SignIn = () => {
           onSubmit={(event) => {
             event.preventDefault()
 
-            signIn(email, password)
+            signUp(name, email, password)
           }}>
+          <label>
+            <input
+              onChange={(event) => setName(event.target.value)}
+              placeholder="Name"
+              required
+              type="text"
+              value={name}
+            />
+          </label>
+
           <label>
             <input
               onChange={(event) => setEmail(event.target.value)}
@@ -55,7 +66,7 @@ const SignIn = () => {
           </label>
 
           <button>
-            {loading ? <Spinner className="my-2" light /> : 'Sign in'}
+            {loading ? <Spinner className="my-2" light /> : 'Sign up'}
           </button>
         </form>
       </main>
@@ -82,4 +93,4 @@ export const getServerSideProps = async ({ req }) => {
   }
 }
 
-export default SignIn
+export default SignUp

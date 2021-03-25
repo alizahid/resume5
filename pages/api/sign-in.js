@@ -9,7 +9,7 @@ import { apiError } from '../../lib/error'
 
 const schema = joi.object({
   email: joi.string().email().required(),
-  password: joi.string().min(12).required()
+  password: joi.string().required()
 })
 
 const handler = async (req, res) => {
@@ -48,7 +48,14 @@ const handler = async (req, res) => {
     process.env.TOKEN_SECRET
   )
 
-  setCookie({ res }, 'token', `Bearer ${token}`, cookieOptions)
+  setCookie(
+    {
+      res
+    },
+    'token',
+    `Bearer ${token}`,
+    cookieOptions
+  )
 
   res.json({
     token,

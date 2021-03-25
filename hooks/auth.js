@@ -5,13 +5,13 @@ import { request } from '../lib/api'
 
 export const useProfile = () => {
   const [loading, setLoading] = useState(false)
-  const [user, setUser] = useState()
+  const [user, setUser] = useState(null)
 
   const fetch = useCallback(async () => {
     setLoading(true)
 
     try {
-      const { user } = await request('/profile')
+      const { user } = await request('/api/profile')
 
       setUser(user)
       setLoading(false)
@@ -58,5 +58,40 @@ export const useSignIn = () => {
     error,
     loading,
     signIn
+  }
+}
+
+export const useSignUp = () => {
+  const { push } = useRouter()
+
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState()
+
+  const signUp = useCallback(
+    async (name, email, password) => {
+      setError()
+      setLoading(true)
+
+      try {
+        await request('/api/sign-up', 'post', null, {
+          email,
+          name,
+          password
+        })
+
+        push('/resumes')
+      } catch ({ error }) {
+        setError(error)
+
+        setLoading(false)
+      }
+    },
+    [push]
+  )
+
+  return {
+    error,
+    loading,
+    signUp
   }
 }

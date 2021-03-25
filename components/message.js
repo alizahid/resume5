@@ -7,9 +7,9 @@ export const Message = ({ className, message, type = 'message' }) => (
     className={clsx(
       'rounded-lg p-4 text-medium text-white',
       type === 'success'
-        ? 'bg-green-500'
+        ? 'bg-emerald-500'
         : type === 'error'
-        ? 'bg-red-500'
+        ? 'bg-rose-500'
         : 'bg-lightBlue-500',
       className
     )}>

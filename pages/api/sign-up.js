@@ -8,9 +8,12 @@ import { cookieOptions } from '../../lib/config'
 import { apiError } from '../../lib/error'
 
 const schema = joi.object({
-  name: joi.string().required(),
   email: joi.string().email().required(),
-  password: joi.string().min(12).required()
+  name: joi.string().required(),
+  password: joi
+    .string()
+    //.min(12)
+    .required()
 })
 
 const handler = async (req, res) => {
@@ -24,7 +27,7 @@ const handler = async (req, res) => {
     return apiError(res, 400, error.message)
   }
 
-  const { name, email, password } = value
+  const { email, name, password } = value
 
   const prisma = new PrismaClient()
 
@@ -43,7 +46,14 @@ const handler = async (req, res) => {
     process.env.TOKEN_SECRET
   )
 
-  setCookie({ res }, 'token', `Bearer ${token}`, cookieOptions)
+  setCookie(
+    {
+      res
+    },
+    'token',
+    `Bearer ${token}`,
+    cookieOptions
+  )
 
   res.json({
     token,

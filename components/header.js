@@ -1,8 +1,11 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 
 import { useProfile } from '../hooks/auth'
+import { Logo } from './logo'
 import { Spinner } from './spinner'
 
 export const Header = () => {
@@ -11,45 +14,63 @@ export const Header = () => {
   const { fetch, loading, user } = useProfile()
 
   useEffect(() => {
-    const handler = () => fetch()
+    fetch()
 
-    events.on('routeChangeComplete', handler)
+    events.on('routeChangeComplete', fetch)
 
     return () => {
-      events.off('routeChangeComplete', handler)
+      events.off('routeChangeComplete', fetch)
     }
   }, [events, fetch])
 
   return (
-    <header className="flex items-center justify-between p-8">
-      <h1 className="font-bold text-2xl text-teal-500">Resume 5.0</h1>
+    <header className="flex items-center justify-between">
+      <Link href="/">
+        <a className="text-indigo-600">
+          <Logo size={48} />
+        </a>
+      </Link>
 
       {user ? (
-        <nav className="flex">
-          <Link
-            href="/resumes"
-            onClick={async (event) => {
-              event.preventDefault()
-            }}>
-            <a className="font-medium ml-4 first:ml-0">Resumes</a>
-          </Link>
-          <Link
-            href="/sign-out"
-            onClick={async (event) => {
-              event.preventDefault()
-            }}>
-            <a className="font-medium ml-4 first:ml-0">Sign out</a>
-          </Link>
+        <nav className="flex items-center">
+          <NavLink hero href="/resumes">
+            Resumes
+          </NavLink>
+          <NavLink href="/sign-out">Sign out</NavLink>
         </nav>
       ) : loading ? (
         <Spinner />
       ) : (
-        <nav className="flex">
-          <Link href="/sign-in">
-            <a className="font-medium ml-4 first:ml-0">Sign in</a>
-          </Link>
+        <nav className="flex items-center">
+          <NavLink hero href="/sign-up">
+            Create your resume
+          </NavLink>
+          <NavLink href="/sign-in">Sign in</NavLink>
         </nav>
       )}
     </header>
   )
+}
+
+const NavLink = ({ children, className, hero, href }) => (
+  <Link href={href}>
+    <a
+      className={clsx(
+        'font-medium ml-4 first:ml-0',
+        hero
+          ? 'bg-indigo-500 p-2 rounded-lg hover:text-white hover:bg-indigo-400 text-white'
+          : 'text-black',
+        className
+      )}>
+      {children}
+    </a>
+  </Link>
+)
+
+NavLink.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
+  className: PropTypes.string,
+  hero: PropTypes.bool,
+  href: PropTypes.string.isRequired
 }

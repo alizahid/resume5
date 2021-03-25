@@ -4,16 +4,7 @@ import '../styles/global.scss'
 import { AppProps } from 'next/app'
 import React from 'react'
 
-import { Footer } from '../components/footer'
-import { Header } from '../components/header'
-
-const Resume5 = ({ Component, pageProps }) => (
-  <>
-    <Header />
-    <Component {...pageProps} />
-    <Footer />
-  </>
-)
+const Resume5 = ({ Component, pageProps }) => <Component {...pageProps} />
 
 Resume5.propTypes = AppProps
 
