@@ -6,14 +6,14 @@ import { Header } from '../components/header'
 
 const Home = () => {
   return (
-    <div className="layout">
+    <div className="layout landing">
       <Head>
         <title>Resume 5.0</title>
       </Head>
 
       <Header />
 
-      <main className="page"></main>
+      <main></main>
 
       <Footer />
     </div>

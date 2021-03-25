@@ -26,4 +26,5 @@ model Resume {
 
   title String
   data  Json
+  views Int    @default(0)
 }

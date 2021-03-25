@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <header className="flex items-center justify-between">
       <Link href="/">
-        <a className="text-indigo-600">
+        <a>
           <Logo size={48} />
         </a>
       </Link>
@@ -56,9 +56,9 @@ const NavLink = ({ children, className, hero, href }) => (
   <Link href={href}>
     <a
       className={clsx(
-        'font-medium ml-4 first:ml-0',
+        'font-medium ml-8 first:ml-0',
         hero
-          ? 'bg-indigo-500 p-2 rounded-lg hover:text-white hover:bg-indigo-400 text-white'
+          ? 'bg-primary hover:bg-primary-dark active:bg-primary-light p-3 text-white hover:text-white'
           : 'text-black',
         className
       )}>

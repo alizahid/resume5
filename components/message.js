@@ -5,12 +5,12 @@ import React from 'react'
 export const Message = ({ className, message, type = 'message' }) => (
   <div
     className={clsx(
-      'rounded-lg p-4 text-medium text-white',
+      'p-4 text-medium text-lg text-white',
       type === 'success'
-        ? 'bg-emerald-500'
+        ? 'bg-emerald-600'
         : type === 'error'
-        ? 'bg-rose-500'
-        : 'bg-lightBlue-500',
+        ? 'bg-rose-600'
+        : 'bg-lightBlue-600',
       className
     )}>
     {message}

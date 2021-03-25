@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client'
 import { compare } from 'bcryptjs'
 import joi from 'joi'
 import { sign } from 'jsonwebtoken'
@@ -6,6 +5,7 @@ import { setCookie } from 'nookies'
 
 import { cookieOptions } from '../../lib/config'
 import { apiError } from '../../lib/error'
+import { prisma } from '../../lib/prisma'
 
 const schema = joi.object({
   email: joi.string().email().required(),
@@ -25,9 +25,7 @@ const handler = async (req, res) => {
 
   const { email, password } = value
 
-  const prisma = new PrismaClient()
-
-  const user = await prisma.user.findUnique({
+  const user = await prisma().user.findUnique({
     where: {
       email
     }

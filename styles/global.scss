@@ -1,6 +1,6 @@
 // fonts
 
-@import url('/fonts/circular/circular.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 // global
 
@@ -9,27 +9,31 @@ body {
 }
 
 a {
-  @apply transition-colors text-indigo-500 hover:text-indigo-600 active:text-indigo-400;
+  @apply transition-colors text-primary hover:text-primary-dark active:text-primary-light;
 }
 
 form {
-  @apply flex flex-col;
+  @apply flex flex-col items-start;
 
   label {
-    @apply mb-8;
+    @apply mb-8 last:mb-0;
+
+    & > span {
+      @apply block mb-2 text-gray-600 font-medium;
+    }
   }
 
   button,
   input {
-    @apply appearance-none p-4 outline-none focus:outline-none;
+    @apply appearance-none h-14 outline-none focus:outline-none transition-colors;
   }
 
   button {
-    @apply rounded-xl transition-colors bg-indigo-500 text-white hover:bg-indigo-600 active:bg-indigo-400 font-bold px-8 self-start;
+    @apply bg-primary text-white hover:bg-primary-dark active:bg-primary-light font-medium px-8 self-start;
   }
 
   input {
-    @apply rounded-lg transition-shadow ring-1 ring-gray-200 hover:ring-2 hover:ring-indigo-400 focus:ring-4 focus:ring-indigo-400 w-80;
+    @apply p-4 w-full lg:w-80 bg-gray-200 hover:bg-gray-100 focus:bg-gray-100;
   }
 }
 
@@ -38,13 +42,18 @@ form {
 .layout {
   @apply flex flex-col min-h-screen;
 
-  & > header,
-  & > footer {
-    @apply m-8;
+  &.landing {
+    @apply container mx-auto;
+
+    & > header,
+    & > main,
+    & > footer {
+      @apply m-8;
+    }
   }
 
-  .page {
-    @apply flex-1 m-8;
+  & > main {
+    @apply flex-1;
   }
 }
 

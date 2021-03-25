@@ -6,9 +6,15 @@ module.exports = {
   purge: ['./pages/**/*.js', './components/**/*.js', './styles/*.scss'],
   theme: {
     colors,
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#0d9488',
+        'primary-dark': '#0f766e',
+        'primary-light': '#14b8a6'
+      }
+    },
     fontFamily: {
-      sans: ['Circular', 'system-ui', 'sans-serif']
+      sans: ['Inter', 'sans-serif']
     }
   },
   variants: {

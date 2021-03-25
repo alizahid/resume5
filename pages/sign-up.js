@@ -16,15 +16,15 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
 
   return (
-    <div className="layout">
+    <div className="layout landing">
       <Head>
         <title>Sign up / Resume 5.0</title>
       </Head>
 
       <Header />
 
-      <main className="page">
-        <h2 className="text-4xl font-black">Sign up</h2>
+      <main>
+        <h1 className="text-4xl font-bold">Sign up</h1>
 
         {error && <Message className="mt-8" message={error} type="error" />}
 
@@ -36,9 +36,10 @@ const SignUp = () => {
             signUp(name, email, password)
           }}>
           <label>
+            <span>Name</span>
             <input
               onChange={(event) => setName(event.target.value)}
-              placeholder="Name"
+              placeholder="Ali Zahid"
               required
               type="text"
               value={name}
@@ -46,9 +47,10 @@ const SignUp = () => {
           </label>
 
           <label>
+            <span>Email</span>
             <input
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="Email"
+              placeholder="ali@resume5.com"
               required
               type="email"
               value={email}
@@ -56,18 +58,17 @@ const SignUp = () => {
           </label>
 
           <label>
+            <span>Password</span>
             <input
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Password"
+              placeholder="H@x0r"
               required
               type="password"
               value={password}
             />
           </label>
 
-          <button>
-            {loading ? <Spinner className="my-2" light /> : 'Sign up'}
-          </button>
+          <button>{loading ? <Spinner light /> : 'Sign up'}</button>
         </form>
       </main>
 
