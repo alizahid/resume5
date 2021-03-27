@@ -73,6 +73,24 @@ form {
   }
 }
 
+.resume-data {
+  h2 {
+    @apply font-semibold text-xl;
+  }
+
+  label {
+    @apply block mt-4;
+
+    span {
+      @apply block mb-2 font-medium text-gray-600;
+    }
+
+    input {
+      @apply w-full bg-gray-100 p-3 transition-colors focus:bg-gray-50 focus:outline-none;
+    }
+  }
+}
+
 // animations
 
 @keyframes spinner {
