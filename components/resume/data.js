@@ -292,138 +292,140 @@ export const ResumeData = ({ className, data, onChange }) => (
         />
       </div>
 
-      {data.experience.map((experience, index) => (
-        <div
-          className="flex items-center mt-4 pt-4 border-gray-200 border-t first:pt-0 first:border-t-0"
-          key={`experience-${index}`}>
-          <Icon
-            className="text-rose-500 mr-4"
-            name="delete"
-            onClick={() =>
-              onChange(
-                update(data, {
-                  experience: {
-                    $splice: [[index, 1]]
-                  }
-                })
-              )
-            }
-          />
+      <div>
+        {data.experience.map((experience, index) => (
+          <div
+            className="flex items-center mt-4 pt-4 border-gray-200 border-t first:pt-0 first:border-t-0"
+            key={`experience-${index}`}>
+            <Icon
+              className="text-rose-500 mr-4"
+              name="delete"
+              onClick={() =>
+                onChange(
+                  update(data, {
+                    experience: {
+                      $splice: [[index, 1]]
+                    }
+                  })
+                )
+              }
+            />
 
-          <div className="flex-1">
-            <label>
-              <span>Company</span>
-              <input
-                onChange={(event) =>
-                  onChange(
-                    update(data, {
-                      experience: {
-                        [index]: {
-                          company: {
-                            $set: event.target.value
-                          }
-                        }
-                      }
-                    })
-                  )
-                }
-                placeholder="Company"
-                type="text"
-                value={experience.company}
-              />
-            </label>
-
-            <label className="mt-4">
-              <span>Position</span>
-              <input
-                onChange={(event) =>
-                  onChange(
-                    update(data, {
-                      experience: {
-                        [index]: {
-                          position: {
-                            $set: event.target.value
-                          }
-                        }
-                      }
-                    })
-                  )
-                }
-                placeholder="Position"
-                type="text"
-                value={experience.position}
-              />
-            </label>
-
-            <label className="mt-4">
-              <span>Description</span>
-              <textarea
-                className="block"
-                onChange={(event) =>
-                  onChange(
-                    update(data, {
-                      experience: {
-                        [index]: {
-                          description: {
-                            $set: event.target.value
-                          }
-                        }
-                      }
-                    })
-                  )
-                }
-                placeholder={`- I was in charge of something\n- We increased our sales by 200%`}
-                type="text"
-                value={experience.description}
-              />
-            </label>
-
-            <div className="flex mt-4">
-              <label className="flex-1">
-                <span>From</span>
-                <DatePicker
-                  onChange={(date) =>
+            <div className="flex-1">
+              <label>
+                <span>Company</span>
+                <input
+                  onChange={(event) =>
                     onChange(
                       update(data, {
                         experience: {
                           [index]: {
-                            from: {
-                              $set: date
+                            company: {
+                              $set: event.target.value
                             }
                           }
                         }
                       })
                     )
                   }
-                  placeholder="From"
-                  value={parseDate(experience.from)}
+                  placeholder="Company"
+                  type="text"
+                  value={experience.company}
                 />
               </label>
 
-              <label className="flex-1 ml-4">
-                <span>To</span>
-                <DatePicker
-                  onChange={(date) =>
+              <label className="mt-4">
+                <span>Position</span>
+                <input
+                  onChange={(event) =>
                     onChange(
                       update(data, {
                         experience: {
                           [index]: {
-                            to: {
-                              $set: date
+                            position: {
+                              $set: event.target.value
                             }
                           }
                         }
                       })
                     )
                   }
-                  placeholder="From"
-                  value={parseDate(experience.to)}
+                  placeholder="Position"
+                  type="text"
+                  value={experience.position}
                 />
               </label>
+
+              <label className="mt-4">
+                <span>Description</span>
+                <textarea
+                  className="block"
+                  onChange={(event) =>
+                    onChange(
+                      update(data, {
+                        experience: {
+                          [index]: {
+                            description: {
+                              $set: event.target.value
+                            }
+                          }
+                        }
+                      })
+                    )
+                  }
+                  placeholder={`- I was in charge of something\n- We increased our sales by 200%`}
+                  type="text"
+                  value={experience.description}
+                />
+              </label>
+
+              <div className="flex mt-4">
+                <label className="flex-1">
+                  <span>From</span>
+                  <DatePicker
+                    onChange={(date) =>
+                      onChange(
+                        update(data, {
+                          experience: {
+                            [index]: {
+                              from: {
+                                $set: date
+                              }
+                            }
+                          }
+                        })
+                      )
+                    }
+                    placeholder="From"
+                    value={parseDate(experience.from)}
+                  />
+                </label>
+
+                <label className="flex-1 ml-4">
+                  <span>To</span>
+                  <DatePicker
+                    onChange={(date) =>
+                      onChange(
+                        update(data, {
+                          experience: {
+                            [index]: {
+                              to: {
+                                $set: date
+                              }
+                            }
+                          }
+                        })
+                      )
+                    }
+                    placeholder="From"
+                    value={parseDate(experience.to)}
+                  />
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
     <div className="border-t border-gray-200 p-4">
