@@ -12,7 +12,7 @@ export const DatePicker = ({ className, onChange, placeholder, value }) => {
     <>
       <div
         className={clsx(
-          'bg-gray-100 transition-shadow hover:ring-gray-500 hover:ring-2 active:ring-teal-500 rounded-lg p-3 cursor-pointer',
+          'bg-gray-100 transition-shadow hover:ring-gray-500 hover:ring-2 active:ring-teal-500 rounded p-3 cursor-pointer',
           className
         )}
         onClick={() => setVisible(true)}>
@@ -29,14 +29,14 @@ export const DatePicker = ({ className, onChange, placeholder, value }) => {
           </div>
         )}
 
-        <div className="flex items-center justify-center mt-4 font-mono">
+        <div className="flex items-center justify-center mt-4 font-mono font-medium">
           {[-1, 0, 1].map((index) => {
             const date = addYears(value, index)
 
             return (
               <div
                 className={clsx(
-                  'bg-emerald-600 p-3 cursor-pointer',
+                  'bg-emerald-600 px-4 py-3 cursor-pointer',
                   index < 0
                     ? 'bg-opacity-40 rounded-l-lg'
                     : index === 0
@@ -58,7 +58,7 @@ export const DatePicker = ({ className, onChange, placeholder, value }) => {
             return (
               <div
                 className={clsx(
-                  'bg-teal-600 p-3 cursor-pointer',
+                  'bg-teal-600 px-4 py-3 cursor-pointer',
                   index < 0
                     ? 'bg-opacity-40 rounded-l-lg'
                     : index === 0
@@ -80,7 +80,7 @@ export const DatePicker = ({ className, onChange, placeholder, value }) => {
             return (
               <div
                 className={clsx(
-                  'bg-green-600 p-3 cursor-pointer',
+                  'bg-green-600 px-4 py-3 cursor-pointer',
                   index < 0
                     ? 'bg-opacity-40 rounded-l-lg'
                     : index === 0

@@ -20,7 +20,7 @@ export const Menu = ({ children, className, items, onChange, title }) => {
         <div className="mt-4">
           {items.map((item) => (
             <div
-              className="cursor-pointer transition-colors hover:bg-teal-500 hover:text-white p-4 text-xl border-gray-100 border-t"
+              className="cursor-pointer transition-colors hover:bg-teal-500 hover:text-white p-4 text-xl border-gray-100 border-t text-center"
               key={item.value}
               onClick={() => {
                 onChange(item)

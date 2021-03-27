@@ -252,7 +252,7 @@ export const ResumeData = ({ className, data, onChange }) => (
                         })
                       )
                     }
-                    placeholder="From"
+                    placeholder="To"
                     value={parseDate(education.to)}
                   />
                 </label>
@@ -417,7 +417,7 @@ export const ResumeData = ({ className, data, onChange }) => (
                         })
                       )
                     }
-                    placeholder="From"
+                    placeholder="To"
                     value={parseDate(experience.to)}
                   />
                 </label>

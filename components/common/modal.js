@@ -15,7 +15,7 @@ export const Modal = ({ children, className, onClose, visible }) => (
     }}>
     <div
       className={clsx(
-        'cursor-default rounded-xl shadow bg-white overflow-y-scroll max-h-full',
+        'cursor-default rounded-xl shadow bg-white overflow-y-scroll w-full lg:w-96 max-h-full',
         className
       )}>
       {children}
