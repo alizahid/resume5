@@ -7,19 +7,19 @@ export const Spinner = ({ className, light = false }) => (
     <div
       className={clsx(
         'one h-2 w-2 rounded-full',
-        light ? 'bg-white' : 'bg-primary'
+        light ? 'bg-white' : 'bg-teal-500'
       )}
     />
     <div
       className={clsx(
         'two h-2 w-2 rounded-full ml-1',
-        light ? 'bg-white' : 'bg-primary'
+        light ? 'bg-white' : 'bg-teal-500'
       )}
     />
     <div
       className={clsx(
         'three h-2 w-2 rounded-full ml-1',
-        light ? 'bg-white' : 'bg-primary'
+        light ? 'bg-white' : 'bg-teal-500'
       )}
     />
   </div>

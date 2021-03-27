@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import React, { useState } from 'react'
 
-import { Footer } from '../components/footer'
-import { Header } from '../components/header'
-import { Message } from '../components/message'
-import { Spinner } from '../components/spinner'
+import { Footer } from '../components/common/footer'
+import { Header } from '../components/common/header'
+import { Message } from '../components/common/message'
+import { Spinner } from '../components/common/spinner'
 import { useSignIn } from '../hooks/auth'
 import { getUser } from '../lib/auth'
 

@@ -1,10 +1,11 @@
+import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 export const ResumePreview = ({ className, data, theme }) => (
-  <div className={className}>
+  <div className={clsx('m-4', className)}>
     <div>{theme}</div>
-    <pre>{JSON.stringify(data, null, 2)}</pre>
+    <pre className="mt-4">{JSON.stringify(data, null, 2)}</pre>
   </div>
 )
 

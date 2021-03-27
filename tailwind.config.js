@@ -6,14 +6,9 @@ module.exports = {
   purge: ['./pages/**/*.js', './components/**/*.js', './styles/*.scss'],
   theme: {
     colors,
-    extend: {
-      colors: {
-        primary: '#0d9488',
-        'primary-dark': '#0f766e',
-        'primary-light': '#14b8a6'
-      }
-    },
+    extend: {},
     fontFamily: {
+      mono: ['Roboto Mono', 'sans-serif'],
       sans: ['Inter', 'sans-serif']
     }
   },

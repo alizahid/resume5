@@ -1,15 +1,19 @@
 // fonts
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap');
 
 // global
+
+::selection {
+  @apply bg-teal-100 text-black;
+}
 
 body {
   @apply bg-white text-black cursor-default;
 }
 
 a {
-  @apply transition-colors text-primary hover:text-primary-dark active:text-primary-light;
+  @apply transition-colors text-teal-500 hover:text-teal-600 active:text-teal-400;
 }
 
 form {
@@ -24,16 +28,17 @@ form {
   }
 
   button,
-  input {
-    @apply appearance-none h-14 outline-none focus:outline-none transition-colors;
+  input,
+  select {
+    @apply appearance-none rounded-lg h-14 outline-none focus:outline-none transition-colors;
   }
 
   button {
-    @apply bg-primary text-white hover:bg-primary-dark active:bg-primary-light font-medium px-8 self-start;
+    @apply bg-teal-500 text-white hover:bg-teal-600 active:bg-teal-400 font-medium px-8 self-start;
   }
 
   input {
-    @apply p-4 w-full lg:w-80 bg-gray-200 hover:bg-gray-100 focus:bg-gray-100;
+    @apply p-4 w-full lg:w-80 bg-gray-200 transition-shadow hover:ring-gray-500 hover:ring-2 focus:ring-teal-500 focus:ring-2;
   }
 }
 
@@ -74,20 +79,37 @@ form {
 }
 
 .resume-data {
+  @apply text-sm;
+
   h2 {
     @apply font-semibold text-xl;
   }
 
   label {
-    @apply block mt-4;
+    @apply block;
 
     span {
       @apply block mb-2 font-medium text-gray-600;
     }
+  }
 
-    input {
-      @apply w-full bg-gray-100 p-3 transition-colors focus:bg-gray-50 focus:outline-none;
-    }
+  input,
+  select,
+  textarea {
+    @apply block rounded-lg appearance-none p-3 focus:outline-none;
+  }
+
+  input,
+  textarea {
+    @apply bg-gray-100 w-full transition-shadow hover:ring-gray-500 hover:ring-2 focus:ring-teal-500 focus:ring-2;
+  }
+
+  select {
+    @apply bg-gray-200;
+  }
+
+  textarea {
+    @apply h-40 resize-none;
   }
 }
 

@@ -4,9 +4,9 @@ import pluralize from 'pluralize'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
-import { Footer } from '../../components/footer'
-import { Header } from '../../components/header'
-import { Spinner } from '../../components/spinner'
+import { Footer } from '../../components/common/footer'
+import { Header } from '../../components/common/header'
+import { Spinner } from '../../components/common/spinner'
 import { useCreateResume } from '../../hooks/resumes'
 import { getUser } from '../../lib/auth'
 import { prisma } from '../../lib/prisma'
@@ -54,11 +54,13 @@ const Resumes = ({ resumes }) => {
                   />
                 </label>
 
-                <button>{loading ? <Spinner light /> : 'Create'}</button>
+                <button className="ml-4">
+                  {loading ? <Spinner light /> : 'Create'}
+                </button>
               </form>
             ) : (
               <a
-                className="bg-primary text-white hover:text-white hover:bg-primary-dark active:bg-primary-light font-medium p-3"
+                className="rounded-lg bg-teal-500 text-white hover:text-white hover:bg-teal-600 active:bg-teal-400 font-medium p-3"
                 href="#create"
                 onClick={(event) => {
                   event.preventDefault()
@@ -75,7 +77,7 @@ const Resumes = ({ resumes }) => {
           <section className="mt-8 grid lg:grid-cols-2 gap-8">
             {resumes.map((resume) => (
               <Link href={`/resumes/${resume.id}`} key={resume.id}>
-                <a className="bg-gray-100 hover:bg-gray-50 text-black hover:text-black flex justify-between p-4">
+                <a className="rounded-lg bg-gray-100 hover:bg-gray-50 text-black hover:text-black flex justify-between p-4">
                   <div className="font-medium">{resume.title}</div>
                   <div>{pluralize('view', resume.views, true)}</div>
                 </a>

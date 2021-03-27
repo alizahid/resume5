@@ -32,3 +32,34 @@ export const useCreateResume = () => {
     loading
   }
 }
+
+export const useUpdateResume = () => {
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState(false)
+
+  const updateResume = useCallback(async (resumeId, title, theme, data) => {
+    setError()
+    setLoading(true)
+
+    try {
+      await request('/api/update-resume', 'post', null, {
+        data,
+        resumeId,
+        theme,
+        title
+      })
+
+      setLoading(false)
+    } catch ({ error }) {
+      setError(error)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  return {
+    error,
+    loading,
+    updateResume
+  }
+}

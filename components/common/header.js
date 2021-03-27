@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 
-import { useProfile } from '../hooks/auth'
+import { useProfile } from '../../hooks/auth'
 import { Logo } from './logo'
 import { Spinner } from './spinner'
 
@@ -58,7 +58,7 @@ const NavLink = ({ children, className, hero, href }) => (
       className={clsx(
         'font-medium ml-8 first:ml-0',
         hero
-          ? 'bg-primary hover:bg-primary-dark active:bg-primary-light p-3 text-white hover:text-white'
+          ? 'bg-teal-500 rounded-lg hover:bg-teal-600 active:bg-teal-400 p-3 text-white hover:text-white'
           : 'text-black',
         className
       )}>
@@ -68,8 +68,7 @@ const NavLink = ({ children, className, hero, href }) => (
 )
 
 NavLink.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-    .isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   hero: PropTypes.bool,
   href: PropTypes.string.isRequired
