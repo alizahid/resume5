@@ -31,20 +31,24 @@ export const ResumeThemes = ({ className, onChange, theme }) => {
   ]
 
   return (
-    <div className={clsx('flex p-4 overflow-x-scroll text-sm', className)}>
-      {themes.map((id) => (
-        <div
-          className={clsx(
-            'whitespace-nowrap ml-4 first:ml-0 p-3 cursor-pointer rounded-lg font-medium transition-colors',
-            id === theme
-              ? 'bg-teal-500 text-white'
-              : 'bg-gray-100 hover:bg-gray-200'
-          )}
-          key={id}
-          onClick={() => onChange(id)}>
-          {startCase(id)}
-        </div>
-      ))}
+    <div className={clsx('flex items-center p-4', className)}>
+      <div className="font-semibold text-lg">Themes</div>
+
+      <div className="text-sm flex overflow-x-scroll ml-4">
+        {themes.map((id) => (
+          <div
+            className={clsx(
+              'whitespace-nowrap ml-4 first:ml-0 p-3 cursor-pointer rounded-lg font-medium transition-colors',
+              id === theme
+                ? 'bg-teal-500 text-white'
+                : 'bg-gray-100 hover:bg-gray-200'
+            )}
+            key={id}
+            onClick={() => onChange(id)}>
+            {startCase(id)}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

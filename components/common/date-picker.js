@@ -12,7 +12,7 @@ export const DatePicker = ({ className, onChange, placeholder, value }) => {
     <>
       <div
         className={clsx(
-          'bg-gray-100 transition-shadow ring-teal-500 hover:ring-2 rounded-lg p-3 cursor-pointer',
+          'bg-gray-100 transition-shadow hover:ring-gray-500 hover:ring-2 active:ring-teal-500 rounded-lg p-3 cursor-pointer',
           className
         )}
         onClick={() => setVisible(true)}>

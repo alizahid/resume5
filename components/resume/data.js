@@ -77,7 +77,8 @@ export const ResumeData = ({ className, data, onChange }) => (
                 }
               })
             )
-          }>
+          }
+          title="Contact type">
           <Icon name="add" />
         </Menu>
       </div>
@@ -513,7 +514,7 @@ export const ResumeData = ({ className, data, onChange }) => (
             )}
 
             <Menu
-              className="ml-4 flex items-center p-3 cursor-pointer bg-gray-100 rounded-lg ring-teal-500 hover:ring-2"
+              className="ml-4 flex items-center p-3 cursor-pointer bg-gray-100 rounded transition-shadow hover:ring-gray-500 hover:ring-2 active:ring-teal-500"
               items={[
                 {
                   label: 'Line',
@@ -536,9 +537,10 @@ export const ResumeData = ({ className, data, onChange }) => (
                     }
                   })
                 )
-              }>
+              }
+              title="Skill type">
               {startCase(skill.type)}
-              <span className="ml-2 text-xl leading-none">&#9662;</span>
+              <Icon className="text-gray-500 ml-2" name="line-expand" />
             </Menu>
           </div>
         </div>

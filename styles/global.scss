@@ -30,7 +30,7 @@ form {
   button,
   input,
   select {
-    @apply appearance-none rounded-lg h-14 outline-none focus:outline-none transition-colors;
+    @apply appearance-none rounded h-14 outline-none focus:outline-none transition-colors;
   }
 
   button {
@@ -96,7 +96,7 @@ form {
   input,
   select,
   textarea {
-    @apply block rounded-lg appearance-none p-3 focus:outline-none;
+    @apply block rounded appearance-none p-3 focus:outline-none;
   }
 
   input,

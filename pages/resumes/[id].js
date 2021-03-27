@@ -36,8 +36,8 @@ const Resume = ({ resume }) => {
       <main className="flex flex-col max-h-screen">
         <header className="bg-white flex items-stretch border-b border-gray-200">
           <Link href="/resumes">
-            <a className="flex items-center font-medium text-xl px-4">
-              &#8592;
+            <a className="flex items-center text-black px-4">
+              <Icon name="line-back" />
             </a>
           </Link>
 
@@ -80,7 +80,7 @@ const Resume = ({ resume }) => {
             <div
               className="overflow-y-auto border-t border-gray-100"
               style={{
-                height: 'calc(100vh - 8.25rem - 2px)'
+                height: 'calc(100vh - 3.25rem - 4.75rem - 1px)'
               }}>
               <ResumePreview data={data} theme={theme} />
             </div>
